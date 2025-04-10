@@ -11,12 +11,13 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente implements Serializable {
+public class Livro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCliente;
+    private Long idLivro;
     private String nome;
-    private String sobrenome;
+    private String autor;
     @Column(unique = true)
-    private int cpf;
+    private int isbn;
+    private String genero;
 }
