@@ -1,9 +1,6 @@
 package com.example.Biblioteca.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,9 +19,7 @@ public class Emprestimo implements Serializable {
     private LocalDateTime dataInicial;
     private LocalDateTime dataFinal;
 
-    public Emprestimo(Long idEmprestimo, LocalDateTime dataInicial, LocalDateTime dataFinal) {
-        this.idEmprestimo = idEmprestimo;
-        this.dataInicial = dataInicial;
-        this.dataFinal = dataInicial.plusWeeks(2);
-    }
+    @OneToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
 }
